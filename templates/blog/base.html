@@ -20,6 +20,8 @@
             <a href="{% url 'post_new' %}" class="top-menu">
                 {% include './icons/file-earmark-plus.svg' %}
             </a>
+        {%else%}
+        <a href="{% url 'post_new' %}" class="top-menu">Login</a>
         {% endif %}
             <h1><a href="/">Ivy Tech Event Tracker</a></h1>
         </div>

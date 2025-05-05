@@ -8,6 +8,11 @@ from .models import Post
 from .forms import PostForm
 from django.shortcuts import redirect
 
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
+from django.contrib.auth import logout
+
 # Create your views here.
 #views is used to handle requests and provide a response
 #we take t request information, and handle it in some way
@@ -65,3 +70,6 @@ def post_edit(request, pk):
         #pre-fill out text boxes with all the info from our database entry for this particular post
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+class singUp(CreateView):
+    form_class = UserCreationForm
